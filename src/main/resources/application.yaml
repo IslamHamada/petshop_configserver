@@ -1,6 +1,14 @@
 spring:
   application:
     name: ConfigServer
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/IslamHamada/petshop_sharedconfig
+          username: islamhamada
+          password: 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
+          clone-on-start: true
   output:
     ansi:
       enabled: always
