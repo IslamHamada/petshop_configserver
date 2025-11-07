@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.islamhamada.petshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
