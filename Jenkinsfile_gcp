@@ -6,13 +6,13 @@ node {
         checkout([$class: 'GitSCM',
          branches: [[name: '*/jenkins_gcp']],
          userRemoteConfigs: [[credentialsId: 'git',
-         url: 'https://github.com/IslamHamada/petshop_configserver.git']]])
+         url: 'https://github.com/IslamHamada/petshop_configserver.git']])
     }
     stage('Build and Push Image') {
         withCredentials([file(credentialsId: 'gcp', variable: 'GCP_KEY')]){
-            sh('gcloud auth activate-service-account --key-file=${GCP_KEY}')
-            sh('gcloud auth configure-docker ${REGISTRY_URL}')
-            sh('${mvnCMD} clean install jib:build -DREPO_URL=${repourl}')
+            sh("gcloud auth activate-service-account --key-file=${GCP_KEY}")
+            sh("gcloud auth configure-docker ${REGISTRY_URL}")
+            sh("${mvnCMD} clean install jib:build -DREPO_URL=${repourl}")
         }
     }
     stage('Deploy') {
