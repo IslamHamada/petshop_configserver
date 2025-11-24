@@ -74,7 +74,7 @@
                     </from>
                     <to>
                         <image>${REPO_URL}/config-server</image>
-                        <tags>${project.version}</tags>
+                        <tags>${VERSION}</tags>
                     </to>
                 </configuration>
             </plugin>

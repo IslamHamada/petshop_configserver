@@ -15,7 +15,7 @@ spec:
         - name: dockerhub-secret
       containers:
         - name: config-server-app
-          image: IMAGE_URL/config-server
+          image: IMAGE_URL/config-server:TAG
           imagePullPolicy: Always
           resources:
             limits:
