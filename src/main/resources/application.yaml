@@ -9,9 +9,6 @@ spring:
           username: ${GIT_USERNAME}
           password: ${GIT_ACCESSTOKEN}
           clone-on-start: true
-  output:
-    ansi:
-      enabled: always
 server:
   port: 8082
 eureka:
