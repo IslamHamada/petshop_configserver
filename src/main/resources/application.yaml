@@ -6,8 +6,8 @@ spring:
       server:
         git:
           uri: https://github.com/IslamHamada/petshop_sharedconfig
-          username: islamhamada
-          password: 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
+          username: ${GIT_USERNAME}
+          password: ${GIT_ACCESSTOKEN}
           clone-on-start: true
   output:
     ansi:
