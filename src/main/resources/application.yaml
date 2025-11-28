@@ -6,8 +6,6 @@ spring:
       server:
         git:
           uri: https://github.com/IslamHamada/petshop_sharedconfig
-          username: ${GIT_USERNAME}
-          password: ${GIT_ACCESSTOKEN}
           clone-on-start: true
 server:
   port: 8082
