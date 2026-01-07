@@ -10,7 +10,9 @@ node {
          url: 'https://github.com/IslamHamada/petshop_configserver.git']]])
     }
     stage('Build and Push Image') {
-        sh("${mvnCMD} clean install jib:build -DREPO_URL=${repourl} -DVERSION=${version}")
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
+            sh("${mvnCMD} clean install jib:build -DREPO_URL=${repourl} -DVERSION=${version} -Djib.to.auth.username=$DOCKER_USER -Djib.to.auth.password=$DOCKER_PASS")
+        }
     }
     stage('Deploy') {
         sh("sed -i 's|IMAGE_URL|${repourl}|g' k8s/deployment.yaml")
