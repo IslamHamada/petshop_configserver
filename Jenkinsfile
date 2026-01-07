@@ -10,11 +10,7 @@ node {
          url: 'https://github.com/IslamHamada/petshop_configserver.git']]])
     }
     stage('Build and Push Image') {
-        withCredentials([file(credentialsId: 'gcp', variable: 'GCP_KEY')]){
-            sh("gcloud auth activate-service-account --key-file=${GCP_KEY}")
-            sh("gcloud auth configure-docker ${REGISTRY_URL}")
-            sh("${mvnCMD} clean install jib:build -DREPO_URL=${repourl} -DVERSION=${version}")
-        }
+        sh("${mvnCMD} clean install jib:build -DREPO_URL=${repourl} -DVERSION=${version}")
     }
     stage('Deploy') {
         sh("sed -i 's|IMAGE_URL|${repourl}|g' k8s/deployment.yaml")
