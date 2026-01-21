@@ -73,8 +73,8 @@
                         <image>eclipse-temurin:17-jdk</image>
                     </from>
                     <to>
-                        <image>${REPO_URL}:config-server</image>
-                        <tags>${VERSION}</tags>
+                        <image>${REPO_URL}</image>
+                        <tags>config-server-${VERSION}</tags>
                     </to>
                 </configuration>
             </plugin>
